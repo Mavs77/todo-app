@@ -1,0 +1,1 @@
+export const newTitle = "this is the new-project module"

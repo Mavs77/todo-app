@@ -1,0 +1,1 @@
+export const projectTitle = "this is the view project module"
