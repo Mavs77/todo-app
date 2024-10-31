@@ -4,6 +4,8 @@
 //"View Projects" tab will just display the list of projects and tasks along with 
 //"Add Task" Allows you to add sub task to a project you select
 
+import "./style.css"
+
 import { taskTitle } from "./add-task";
 import { newTitle } from "./new-project";
 import { projectTitle } from "./view-projects"

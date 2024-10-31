@@ -1,0 +1,9 @@
+nav button {
+    font-size: 3rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center; 
+    gap: 2rem;
+}
