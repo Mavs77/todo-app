@@ -1,5 +1,8 @@
 nav button {
     font-size: 3rem;
+    padding: 1rem;
+    background-color: green;
+    border: solid 5px black;
 }
 
 nav {
