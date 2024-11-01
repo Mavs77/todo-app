@@ -6,10 +6,6 @@
 
 import "./style.css"
 
-import { taskTitle } from "./add-task";
-import { newTitle } from "./new-project";
-import { projectTitle } from "./view-projects"
+import newProject from './new-project'
 
-console.log(taskTitle)
-console.log(newTitle)
-console.log(projectTitle)
+document.getElementById('new-project').onclick = newProject;

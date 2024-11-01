@@ -5,6 +5,10 @@ nav button {
     border: solid 5px black;
 }
 
+nav button:hover {
+    cursor: pointer; 
+}
+
 nav {
     display: flex;
     justify-content: center; 
