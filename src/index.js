@@ -1,11 +1,35 @@
-// each tab needs to be represented with separate module 
 
-//"new project" tab likely works with a form to create a new object which will be imported into the "view projects" tab
-//"View Projects" tab will just display the list of projects and tasks along with 
-//"Add Task" Allows you to add sub task to a project you select
+import "./style.css";
+import newProject from './new-project';
+import { extractAndAddProject } from "./new-project";
+import viewProjects from "./view-projects";
 
-import "./style.css"
+// Set up event listeners for tab buttons
+document.getElementById('new-project').onclick = () => {
+    newProject(); // Call the function to render the new project form
+    init(); // Initialize after the new project form is rendered
+};
 
-import newProject from './new-project'
+document.getElementById('view-projects').onclick = viewProjects; // Call to view projects
 
-document.getElementById('new-project').onclick = newProject;
+function init() {
+    const submitButton = document.getElementById('submit-button'); // Ensure this ID matches the button in your form
+
+    // Check if the submit button exists before adding the event listener
+    if (submitButton) {
+        submitButton.addEventListener('click', () => {
+            const form = document.getElementById('project-form'); // Access the form
+            if (form) {
+                extractAndAddProject(form); // Pass the form to the function
+            } else {
+                console.error('Form not found!');
+            }
+        });
+    }
+}
+
+// Call the init function to set up the event listener when the script loads
+init();
+
+
+
