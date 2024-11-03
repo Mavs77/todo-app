@@ -45,7 +45,7 @@ export default function newProject() {
 }
 
 
-const projectArray = [];
+export const projectArray = [];
 
 
 // Function to extract text from input within the form and add to array
