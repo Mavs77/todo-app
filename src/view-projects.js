@@ -1,6 +1,12 @@
 import { projectArray } from "./new-project";
 
+
 export default function viewProjects() {
+
+    const storedProjects = JSON.parse(localStorage.getItem("projectArray"))
+
+    if (!storedProjects) return alert("No projects stored!"); 
+
     // Clear div container
     const formContainer = document.getElementById('form-container'); 
     formContainer.innerHTML = '';
@@ -20,11 +26,10 @@ export default function viewProjects() {
     list.style.flexDirection = 'column'
     list.style.justifyContent = 'center'
     list.style.alignItems = 'center'
-    projectArray.forEach((project) => {
+    storedProjects.forEach((project) => {
         const listItem = document.createElement('li');
         listItem.style.fontSize = '1.5rem'; 
         listItem.style.margin = '1.5rem 0'; 
-        listItem.style.width = '2rem'
         listItem.style.textAlign = 'center'
         listItem.textContent = project;
         list.appendChild(listItem);

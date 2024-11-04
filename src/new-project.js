@@ -45,7 +45,7 @@ export default function newProject() {
 }
 
 
-export const projectArray = [];
+// export const projectArray = [];
 
 
 // Function to extract text from input within the form and add to array
@@ -54,25 +54,37 @@ export function extractAndAddProject(form) {
     const inputElement = form.querySelector('#project-input');
 
     // Get the value from the input field
-    const enteredText = inputElement.value;
+    const enteredText = inputElement.value.trim();
+
+    //Basic validation 
+    if (!enteredText) return alert("Please enter a project!"); 
+
+    //check if array of projects exists in localStorage, or initialize it to an empty array
+    const projectArray = JSON.parse(localStorage.getItem("projectArray")) || []
+
+   //add new project to array  
+    projectArray.push(enteredText); 
+
+    //save updated array to localStorage 
+    localStorage.setItem("projectArray", JSON.stringify(projectArray))
 
     // Validate the input: Check if it's empty or whitespace
-    if (enteredText.trim() === '') {
-        console.log('No project name entered.');
-        return; // Exit if input is invalid
-    }
+    // if (enteredText.trim() === '') {
+    //     console.log('No project name entered.');
+    //     return; // Exit if input is invalid
+    // }
 
     // Add the valid project name to the array
-    projectArray.push(enteredText.trim());
+    // projectArray.push(enteredText.trim());
 
     // Log the added project name and updated array
-    console.log(`Project added: ${enteredText.trim()}`);
+    console.log(`Project added: ${enteredText}`);
     console.log('Current project array:', projectArray);
 
     // Clear the input field
     inputElement.value = '';
+    console.log("Project added successfully ")
 
-    // Return the updated array so it can be used elsewhere
     return projectArray;
 }
 
